@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/mainlayout"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="点我点我"
+        />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="点我弹出一个dialog"
+        />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="点我新增一个View"
+        />
+
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="开启无障碍服务，更多服务——点击事件助手"
+        />
+
+</LinearLayout>
