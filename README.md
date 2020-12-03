@@ -1,2 +1,12 @@
 # PageClickMonitor
 如何捕获一个Activity页面上所有的点击行为
+
+
+## 总结
+
+我们一共试了四种方法：
+
+* `事件分发方案`。通过重写Activity的`dispatchTouchEvent`方法，对页面上的点击事件进行拦截。但是拦截不到Dialog中的点击事件，因为事件分发由DecorView开始发起，但是Dialog所处的DecorView和Activity的DecorView不是同一个，所以无法在Activitiy的`dispatchTouchEvent`方法进行拦截Dialog中的点击事件。
+* `hook替换OnClickListener方案`。这个方案主要是通过替换View中的`mOnClickListener`为我们自己的OnClickListener，然后进行点击事件的拦截处理。但是这个方案需要获取替换的那个View才行，所以新增的View和Dialog都需要单独处理才行。新增的View需要进行当前页面的View树进行监听，Dialog必须对Dialog中的View再进行一次hook。
+* `AspectJ切面编程方案`。这个方案是在编译期将代码插入到目标方法中，所以只要找到切点——也就是View中的onClick方法即可。可以完美解决我们的问题，并且不需要用户另外操作。
+* `无障碍服务方案`。这个方案是通过Android中的无障碍服务，对APP中的所有点击事件进行拦截，对应的事件就是`AccessibilityEvent.TYPE_VIEW_CLICKED`。该方案也能完美解决我们的问题，但是有个很大的缺点，就是需要用户单独去设置页面开启该辅助服务才行。
