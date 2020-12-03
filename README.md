@@ -1,0 +1,2 @@
+# PageClickMonitor
+如何捕获一个Activity页面上所有的点击行为
